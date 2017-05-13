@@ -2,7 +2,9 @@
   "name": "argenfacts",
   "main": "index.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0-rc.3"
+    "polymer": "Polymer/polymer#^2.0.0-rc.3",
+    "paper-button": "polymerelements/paper-button#2.0-preview",
+    "paper-styles": "polymerelements/paper-styles#2.0-preview"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0-prerelease.5",

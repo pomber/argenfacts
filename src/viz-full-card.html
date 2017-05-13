@@ -1,4 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
 <dom-module id="viz-full-card">
 	<template>
 		<style>
@@ -10,10 +12,18 @@
 				display: flex;
 				flex-direction: column;
 				height: 100%;
+				box-sizing: border-box;
+				padding: 10px;
 			}
 
 			.filler {
 				flex: 1;
+			}
+
+			paper-button {
+      	background: var(--paper-grey-50);
+      	color: var(--viz-display-color);
+				margin: 5px;
 			}
 
 		</style>
@@ -23,6 +33,9 @@
 			<span class="filler"></span>			
 			<div class="content">Something</div>
 			<span class="filler"></span>
+			<paper-button>Ver Detalle</paper-button>
+			<paper-button>Comparar</paper-button>
+			<paper-button>Desglosar</paper-button>
 		</div>
 
 	</template>

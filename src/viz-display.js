@@ -4,7 +4,7 @@ class VizDisplay extends Polymer.Element {
   }
   static get properties() {
     return {
-      prop1: {
+      items: {
         type: String,
         value: "viz-display"
       }

@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
 <link rel="import" href="./viz-display.html">
 
 <dom-module id="af-app">
@@ -15,6 +16,7 @@
         width: 400px;
         flex: 1;
         margin: 10px 0;
+        --viz-display-color: var(--paper-blue-400);
       }
     </style>
     <h1>Argentina, en números</h1>
@@ -22,20 +24,8 @@
   </template>
 
   <script>
-    /**
-     * @customElement
-     * @polymer
-     */
     class AfApp extends Polymer.Element {
       static get is() { return 'af-app'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'af-app'
-          }
-        };
-      }
     }
 
     window.customElements.define(AfApp.is, AfApp);
