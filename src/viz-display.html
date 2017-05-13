@@ -1,32 +1,40 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<dom-module id="af-app">
+<dom-module id="viz-display">
   <template>
     <style>
       :host {
         display: block;
+				background: #00aef1;
+				position: relative;
+				width: 100%;
+				height: 100%;
       }
+			.container {
+				width: 100%;
+				height: 100%;
+			}
     </style>
     <h2>Hello [[prop1]]!</h2>
   </template>
 
-  <script>
+	<script>
     /**
      * @customElement
      * @polymer
      */
-    class AfApp extends Polymer.Element {
-      static get is() { return 'af-app'; }
+		class VizDisplay extends Polymer.Element {
+			static get is() { return 'viz-display'; }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'af-app'
+            value: 'viz-display'
           }
         };
       }
-    }
+		}
 
-    window.customElements.define(AfApp.is, AfApp);
-  </script>
+		window.customElements.define(VizDisplay.is, VizDisplay);
+	</script>
 </dom-module>

@@ -1,13 +1,24 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./viz-display.html">
 
 <dom-module id="af-app">
   <template>
     <style>
       :host {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+      }
+
+      viz-display {
+        width: 400px;
+        flex: 1;
+        margin: 10px 0;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <h1>Argentina, en números</h1>
+    <viz-display></viz-display>
   </template>
 
   <script>
