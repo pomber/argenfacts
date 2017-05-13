@@ -1,32 +1,30 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="./viz-full-card.html">
-
-<dom-module id="viz-display">
+<dom-module id="viz-full-card">
 	<template>
 		<style>
 			:host {
 				display: block;
-				position: relative;
 			}
 
 			.container {
-				height: 100%;
 				display: flex;
 				flex-direction: column;
+				height: 100%;
 			}
 
-			.stack {
-				background: #00aef1;
+			.filler {
 				flex: 1;
 			}
+
 		</style>
 
 		<div class="container">
-			<header>Recursos</header>
-			<viz-full-card class="stack"></viz-full-card>
+			<h2 class="title">Title</h2>
+			<span class="filler"></span>			
+			<div class="content">Something</div>
+			<span class="filler"></span>
 		</div>
 
-
 	</template>
-	<script src="viz-display.js"></script>
+	<script src="viz-full-card.js"></script>
 </dom-module>
