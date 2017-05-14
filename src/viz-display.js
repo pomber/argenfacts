@@ -12,7 +12,12 @@ class VizDisplay extends Polymer.Element {
   }
 
   divide(e) {
-    const fullCard = this.$.card.shadowRoot;
+    const cardHolder = this.$["card-holder"];
+    const card = cardHolder.querySelector("viz-full-card");
+
+    const data = this.data;
+
+    const fullCard = card.shadowRoot;
     const title = fullCard.querySelector(".title");
     const titleRect = title.getBoundingClientRect();
     const titleStyle = window.getComputedStyle(title);
@@ -24,10 +29,6 @@ class VizDisplay extends Polymer.Element {
     const dy = titleRect.top - headerRect.top;
 
     const content = fullCard.querySelectorAll(".container > *");
-
-    const data = this.data;
-    const cardHolder = this.$["card-holder"];
-    const card = this.$["card"];
 
     new TimelineMax({
       onComplete: () => {
@@ -52,6 +53,7 @@ class VizDisplay extends Polymer.Element {
     const divided = cardHolder.querySelector("viz-divided-card");
     const joined = new VizFullCard();
     joined.data = this.data;
+    joined.addEventListener("divide", this.divide.bind(this));
     cardHolder.replaceChild(joined, divided);
   }
 }
