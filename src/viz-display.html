@@ -16,22 +16,29 @@
 				display: flex;
 				flex-direction: column;
 			}
-			
+
 			header {
 				text-align: center;
 				height: 30px;
 			}
 
-			#card {
-      	background: var(--viz-display-color);
+			#card-holder {
 				flex: 1;
+				position: relative;
+			}
+
+			#card-holder > * {
+				position: absolute;
+				width: 100%;
 			}
 		</style>
 
 		<div class="container">
 			<header id="header"></header>
-			<!--<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>-->
-			<viz-divided-card data="[[data]]" on-select="select"></viz-divided-card>
+			<div id="card-holder">
+				<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>
+				<!--<viz-divided-card data="[[data]]" on-select="select"></viz-divided-card>-->
+			</div>
 		</div>
 
 

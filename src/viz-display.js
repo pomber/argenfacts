@@ -25,7 +25,17 @@ class VizDisplay extends Polymer.Element {
 
     const content = fullCard.querySelectorAll(".container > *");
 
-    new TimelineMax()
+    const data = this.data;
+    const cardHolder = this.$["card-holder"];
+    const card = this.$["card"];
+
+    new TimelineMax({
+      onComplete: () => {
+        const divided = new VizDividedCard();
+        divided.data = data;
+        cardHolder.replaceChild(divided, card);
+      }
+    })
       .set(header, {
         y: dy,
         textContent: title.textContent,
