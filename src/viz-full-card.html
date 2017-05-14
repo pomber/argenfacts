@@ -15,7 +15,7 @@
 				flex-direction: column;
 				height: 100%;
 				box-sizing: border-box;
-				padding: 10px;
+				padding: 15px;
 			}
 
 			.title {
@@ -26,6 +26,11 @@
 				font-weight: bolder;
 				font-size: 320%;
 				text-align: center;
+			}
+
+			.amount b {
+				font-size: 80%;
+				font-weight: normal;
 			}
 
 			.amount-size {
@@ -57,9 +62,9 @@
 		</style>
 
 		<div class="container">
-			<h2 class="title">Crédito</h2>
+			<h2 class="title">[[data.name]]</h2>
 			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo posuere dui sed elementum. Quisque at placerat felis. Proin ornare lacinia aliquam.</p>
-			<div class="amount">$1.358.030</div>
+			<div class="amount"><b>$</b>[[data.amount]]</div>
 			<div class="amount-size">Millones</div>
 			<div class="percentage">
 				<paper-progress value="40"></paper-progress>

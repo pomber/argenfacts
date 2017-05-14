@@ -5,7 +5,7 @@ class VizDisplay extends Polymer.Element {
   static get properties() {
     return {
       data: {
-        type: Array,
+        type: Object,
         value: []
       }
     };

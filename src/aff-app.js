@@ -6,7 +6,7 @@ class AfApp extends Polymer.Element {
   static get properties() {
     return {
       revenue: {
-        type: Array,
+        type: Object,
         value: revenue
       }
     };
