@@ -39,10 +39,10 @@
       <af-landing on-revenue="toRevenue" on-spending="toSpending"></af-landing>
     </template>
     <template is="dom-if" if="[[isRevenue]]">
-      <viz-display data="[[revenue]]" class="revenue"></viz-display>
+      <viz-display data="[[revenue]]" class="revenue" on-close="toLanding"></viz-display>
     </template>
     <template is="dom-if" if="[[isSpending]]">
-      <viz-display data="[[spending]]" class="spending"></viz-display>
+      <viz-display data="[[spending]]" class="spending" on-close="toLanding"></viz-display>
     </template>
   </template>
 

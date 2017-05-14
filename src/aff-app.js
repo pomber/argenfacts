@@ -51,6 +51,10 @@ class AfApp extends Polymer.Element {
   toSpending() {
     this.page = "spending";
   }
+
+  toLanding() {
+    this.page = "landing";
+  }
 }
 
 const revenue = {};
