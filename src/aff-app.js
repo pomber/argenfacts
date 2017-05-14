@@ -57,7 +57,86 @@ class AfApp extends Polymer.Element {
   }
 }
 
-const revenue = {};
+const revenue = {
+  name: "Recursos",
+  amount: 1212308,
+  sub: [
+    {
+      name: "Ingresos Tributarios",
+      amount: 670317,
+      sub: [
+        { name: "Otros Impuestos", amount: 26765 },
+        { name: "Comercio Exterior", amount: 106146 },
+        { name: "Patrimonio", amount: 7686 },
+        { name: "Producción, Consumo y Transacciones", amount: 329734 },
+        { name: "Ingresos", amount: 199987 }
+      ]
+    },
+    {
+      name: "Aportes y Contribuciones",
+      amount: 356721,
+      sub: [
+        { name: "Seguridad Social", amount: 349268 },
+        { name: "Otras Contribuciones", amount: 7453 }
+      ]
+    },
+    {
+      name: "Ingresos No Tributarios",
+      amount: 30647,
+      sub: [
+        { name: "Alquileres", amount: 75 },
+        { name: "Derechos", amount: 9928 },
+        { name: "Multas", amount: 1082 },
+        { name: "Otros", amount: 6283 },
+        { name: "Regalías", amount: 720 },
+        { name: "Tasas", amount: 12559 }
+      ]
+    },
+    { name: "Préstamos de Corto Plazo", amount: 2 },
+    { name: "Préstamos de Largo Plazo", amount: 192 },
+    { name: "Recursos Propios de Capital", amount: 176 },
+    {
+      name: "Rentas de la Propiedad",
+      amount: 144731,
+      sub: [
+        { name: "Arrendamientos de Tierras y Terrenos", amount: 1 },
+        { name: "Intereses por Depósitos", amount: 3510 },
+        { name: "Intereses por Préstamos", amount: 4183 },
+        { name: "Intereses por Títulos y Valores", amount: 58580 },
+        { name: "Utilidades por Inversiones Empresariales", amount: 78457 }
+      ]
+    },
+    {
+      name: "Transferencias Corrientes",
+      amount: 2803,
+      sub: [
+        {
+          name: "De Gobiernos e Instituciones Provinciales y Municipales",
+          amount: 252
+        },
+        { name: "De Instituciones Públicas no Financieras", amount: 2349 },
+        { name: "Del Sector Externo", amount: 202 }
+      ]
+    },
+    {
+      name: "Transferencias de Capital",
+      amount: 2035,
+      sub: [
+        { name: "De Instituciones Públicas no Financieras", amount: 2009 },
+        { name: "Del Sector Externo", amount: 25 }
+      ]
+    },
+    {
+      name: "Venta de Bienes y Servicios",
+      amount: 4684,
+      sub: [
+        { name: "Venta de Bienes", amount: 941 },
+        { name: "Venta de Servicios", amount: 3743 }
+      ]
+    }
+  ]
+};
+
 const spending = {
   name: "Crédito",
   amount: 1358030,
@@ -78,8 +157,7 @@ const spending = {
     },
     {
       name: "Deuda Pública",
-      amount: 109613,
-      sub: [{ name: "Servicio de la Deuda Pública", amount: 109613 }]
+      amount: 109613
     },
     {
       name: "Defensa y Seguridad",
