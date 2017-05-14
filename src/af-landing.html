@@ -1,0 +1,87 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<dom-module id="af-landing">
+	<template>
+		<style>
+			:host {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+			}
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+			}
+
+			svg {
+				width: 100%;
+				max-width: 500px;
+			}
+
+			g.top rect {
+				transform: translateY(-50%) rotate(-135deg);
+				transform-origin: left;
+			}
+
+			g.bottom rect {
+				transform: translateY(-50%) rotate(45deg);
+				transform-origin: left;
+			}
+
+			g {
+				cursor: pointer;
+			}
+
+			text {
+				color: #fafafa;
+			}
+
+			.question {
+				position: relative;
+				font-size: 24px;
+				cursor: pointer;
+			}
+
+			.question.top {
+				transform: translateY(90px);
+			}
+
+			.question.bottom {
+				transform: translateY(-90px);
+			}
+		</style>
+		<div class="container">
+			<div class="question top">¿De dónde viene la guita?</div>
+			<svg viewBox="0 -20 100 140" preserveAspectRatio="xMidYMid">
+				<defs>
+					<radialGradient id="pink-gradient" cx="0" cy="0.5">
+						<stop offset="0%" stop-color="#e91e63" />
+						<stop offset="5%" stop-color="#e91e63" />
+						<stop offset="100%" stop-color="transparent" />
+					</radialGradient>
+					<radialGradient id="blue-gradient" cx="0" cy="0.5">
+						<stop offset="0%" stop-color="#2196f3" />
+						<stop offset="25%" stop-color="#2196f3" />
+						<stop offset="100%" stop-color="transparent" />
+					</radialGradient>
+				</defs>
+				<g class="top">
+					<rect x="50" y="50" width="141" height="141" fill="url(#blue-gradient)" />
+					<polygon points="25 75, 25 10, 75 10, 75 25" fill="#2196f3" opacity="0.7" />
+					<text x="50" y="22" font-size="6" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">$1,212,308 M</text>
+				</g>
+
+				<g class="bottom">
+					<rect x="50" y="50" width="141" height="141" fill="url(#pink-gradient)" />
+					<polygon points="25 75, 25 90, 75 90, 75 25" fill="#e91e63" opacity="0.7" />
+					<text x="50" y="82" font-size="6" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">$1,358,030 M</text>
+				</g>
+			</svg>
+			<div class="question bottom">¿A dónde se va?</div>
+		</div>
+	</template>
+	<script src="af-landing.js"></script>
+</dom-module>

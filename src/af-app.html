@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-styles/color.html">
 <link rel="import" href="./viz-display.html">
+<link rel="import" href="./af-landing.html">
 
 <dom-module id="af-app">
   <template>
@@ -16,12 +17,18 @@
         width: 350px;
         flex: 1;
         margin: 10px 0;
-        --viz-display-color: var(--paper-blue-500);
-        --viz-display-accent-color: var(--paper-blue-800);
+        --viz-display-color: var(--paper-pink-500);
+        --viz-display-accent-color: var(--paper-pink-800);
+      }
+
+      h1 {
+        text-align: center;
+        z-index: 10;
       }
     </style>
     <h1>Argentina, en números</h1>
-    <viz-display data="[[revenue]]"></viz-display>
+    <!--<viz-display data="[[revenue]]"></viz-display>-->
+    <af-landing></af-landing>
   </template>
 
   <script src="aff-app.js">
