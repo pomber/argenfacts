@@ -5,15 +5,56 @@ class AfApp extends Polymer.Element {
 
   static get properties() {
     return {
+      page: {
+        type: String,
+        value: "landing"
+      },
+      isLanding: {
+        type: Boolean,
+        computed: "isLandingPage(page)"
+      },
+      isRevenue: {
+        type: Boolean,
+        computed: "isRevenuePage(page)"
+      },
+      isSpending: {
+        type: Boolean,
+        computed: "isSpendigPage(page)"
+      },
       revenue: {
         type: Object,
         value: revenue
+      },
+      spending: {
+        type: Object,
+        value: spending
       }
     };
   }
+
+  isLandingPage(page) {
+    return page === "landing";
+  }
+
+  isRevenuePage(page) {
+    return page === "revenue";
+  }
+
+  isSpendigPage(page) {
+    return page === "spending";
+  }
+
+  toRevenue() {
+    this.page = "revenue";
+  }
+
+  toSpending() {
+    this.page = "spending";
+  }
 }
 
-const revenue = {
+const revenue = {};
+const spending = {
   name: "Crédito",
   amount: 1358030,
   sub: [

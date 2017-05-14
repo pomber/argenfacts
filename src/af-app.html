@@ -6,7 +6,7 @@
 <dom-module id="af-app">
   <template>
     <style>
-      :host {
+       :host {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -26,16 +26,17 @@
         z-index: 10;
       }
     </style>
-    <h1>Argentina, en números</h1>
-    <!--<viz-display data="[[revenue]]"></viz-display>-->
-    <af-landing></af-landing>
+    <template is="dom-if" if="[[isLanding]]">
+      <h1>Argentina, en números</h1>
+      <af-landing on-revenue="toRevenue" on-spending="toSpending"></af-landing>
+    </template>
+    <template is="dom-if" if="[[isRevenue]]">
+      <viz-display data="[[revenue]]"></viz-display>
+    </template>
+    <template is="dom-if" if="[[isSpending]]">
+      <viz-display data="[[spending]]"></viz-display>
+    </template>
   </template>
 
-  <script src="aff-app.js">
-    class AfApp extends Polymer.Element {
-      static get is() { return 'af-app'; }
-    }
-
-    window.customElements.define(AfApp.is, AfApp);
-  </script>
+  <script src="aff-app.js"></script>
 </dom-module>

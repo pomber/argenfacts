@@ -54,7 +54,7 @@
 			}
 		</style>
 		<div class="container">
-			<div class="question top">¿De dónde viene la guita?</div>
+			<div class="question top" on-click="toRevenue">¿De dónde viene la guita?</div>
 			<svg viewBox="0 -20 100 140" preserveAspectRatio="xMidYMid">
 				<defs>
 					<radialGradient id="pink-gradient" cx="0" cy="0.5">
@@ -68,21 +68,21 @@
 						<stop offset="100%" stop-color="transparent" />
 					</radialGradient>
 				</defs>
-				<g class="top">
+				<g class="top" on-click="toRevenue">
 					<rect x="50" y="50" width="141" height="141" fill="url(#blue-gradient)" />
 					<polygon points="25 75, 25 10, 75 10, 75 25" fill="#2196f3" opacity="0.7" />
 					<text x="50" y="20" font-size="7" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">$1,212,308</text>
 					<text x="50" y="27" font-size="5" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">Millones</text>
 				</g>
 
-				<g class="bottom">
+				<g class="bottom" on-click="toSpending">
 					<rect x="50" y="50" width="141" height="141" fill="url(#pink-gradient)" />
 					<polygon points="25 75, 25 90, 75 90, 75 25" fill="#e91e63" opacity="0.7" />
 					<text x="50" y="79" font-size="7" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">$1,358,030</text>
 					<text x="50" y="86" font-size="5" font-family="sans-serif" text-anchor="middle" fill="#fafafa" fill="#fafafa">Millones</text>
 				</g>
 			</svg>
-			<div class="question bottom">¿A dónde se va?</div>
+			<div class="question bottom" on-click="toSpending">¿A dónde se va?</div>
 		</div>
 	</template>
 	<script src="af-landing.js"></script>
