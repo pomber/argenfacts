@@ -17,8 +17,16 @@
         width: 350px;
         flex: 1;
         margin: 10px 0;
+      }
+
+      .spending {
         --viz-display-color: var(--paper-pink-500);
-        --viz-display-accent-color: var(--paper-pink-800);
+        --viz-display-accent-color: var(--paper-pink-900);
+      }
+
+      .revenue {
+        --viz-display-color: var(--paper-blue-500);
+        --viz-display-accent-color: var(--paper-blue-900);
       }
 
       h1 {
@@ -31,10 +39,10 @@
       <af-landing on-revenue="toRevenue" on-spending="toSpending"></af-landing>
     </template>
     <template is="dom-if" if="[[isRevenue]]">
-      <viz-display data="[[revenue]]"></viz-display>
+      <viz-display data="[[revenue]]" class="revenue"></viz-display>
     </template>
     <template is="dom-if" if="[[isSpending]]">
-      <viz-display data="[[spending]]"></viz-display>
+      <viz-display data="[[spending]]" class="spending"></viz-display>
     </template>
   </template>
 
