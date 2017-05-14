@@ -12,6 +12,7 @@ class VizDisplay extends Polymer.Element {
   }
 
   divide(e) {
+    const self = this;
     const cardHolder = this.$["card-holder"];
     const card = cardHolder.querySelector("viz-full-card");
 
@@ -34,6 +35,7 @@ class VizDisplay extends Polymer.Element {
       onComplete: () => {
         const divided = new VizDividedCard();
         divided.data = data;
+        divided.addEventListener("select", self.select.bind(self));
         cardHolder.replaceChild(divided, card);
       }
     })
@@ -44,17 +46,25 @@ class VizDisplay extends Polymer.Element {
         fontSize: titleStyle.fontSize
       })
       .set(title, { innerHTML: "&nbsp" })
-      .to(header, 1, { y: 0 }, 0)
-      .to(content, 1, { alpha: 0 }, 0);
+      .to(header, 0.25, { y: 0 }, 0)
+      .to(content, 0.25, { alpha: 0 }, 0);
   }
 
   join(e) {
+    const header = this.$.header;
+    header.innerHTML = "&nbsp";
     const cardHolder = this.$["card-holder"];
     const divided = cardHolder.querySelector("viz-divided-card");
+    if (!divided) return;
     const joined = new VizFullCard();
     joined.data = this.data;
     joined.addEventListener("divide", this.divide.bind(this));
     cardHolder.replaceChild(joined, divided);
+  }
+
+  select(e) {
+    const item = e.detail.item;
+    console.log(item);
   }
 }
 

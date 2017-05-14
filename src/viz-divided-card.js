@@ -10,6 +10,14 @@ class VizDividedCard extends Polymer.Element {
       }
     };
   }
+  select(e) {
+    const newEvent = new CustomEvent("select", {
+      bubbles: true,
+      composed: true,
+      detail: { item: e.model.item }
+    });
+    this.dispatchEvent(newEvent);
+  }
 }
 
 window.customElements.define(VizDividedCard.is, VizDividedCard);

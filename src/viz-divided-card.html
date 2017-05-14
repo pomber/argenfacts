@@ -19,7 +19,7 @@
 
 		<div class="container">
 			<template is="dom-repeat" items="[[data.sub]]">
-				<viz-collapsed-card data="[[item]]" style$="flex: [[item.amount]];">					
+				<viz-collapsed-card data="[[item]]" style$="flex: [[item.amount]];" on-click="select">					
 				</viz-collapsed-card>
 			</template>
 		</div>
