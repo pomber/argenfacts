@@ -70,6 +70,8 @@ class VizDisplay extends Polymer.Element {
     full.data = item;
     full.addEventListener("divide", this.divide.bind(this));
     cardHolder.replaceChild(full, divided);
+
+    this.$.header.innerHTML = "";
   }
 }
 

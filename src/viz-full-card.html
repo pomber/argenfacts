@@ -6,12 +6,27 @@
 	<template>
 		<style>
 			:host {
-				display: block;
+				display: relative;
+				height: 100%;
+				background: var(--viz-display-color);
+				color: var(--paper-grey-50);
+			}
+
+			.close {
+				position: absolute;
+				right: 0;
+			}
+
+			.close:after {
+				display: inline-block;
+				content: "\00d7";
+				cursor: pointer;
+				font-size: 30px;
+				width: 34px;
+				text-align: center;
 			}
 
 			.container {
-				background: var(--viz-display-color);
-				color: var(--paper-grey-50);
 				display: flex;
 				flex-direction: column;
 				height: 100%;
@@ -30,7 +45,7 @@
 			}
 
 			.amount b {
-				font-size: 80%;
+				font-size: 70%;
 				font-weight: normal;
 			}
 
@@ -52,7 +67,7 @@
 			paper-progress {
 				width: 100%;
 				margin: 5px 0;
-       --paper-progress-active-color: var(--viz-display-accent-color);
+				--paper-progress-active-color: var(--viz-display-accent-color);
 			}
 
 			paper-button {
@@ -62,9 +77,11 @@
 			}
 		</style>
 
+		<span class="close"></span>
 		<div class="container">
 			<h2 class="title">[[data.name]]</h2>
-			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo posuere dui sed elementum. Quisque at placerat felis. Proin ornare lacinia aliquam.</p>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo posuere dui sed elementum. Quisque at placerat
+				felis. Proin ornare lacinia aliquam.</p>
 			<div class="amount"><b>$</b>[[data.amount]]</div>
 			<div class="amount-size">Millones</div>
 			<div class="percentage">
