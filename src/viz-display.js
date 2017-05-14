@@ -16,7 +16,7 @@ class VizDisplay extends Polymer.Element {
     const cardHolder = this.$["card-holder"];
     const card = cardHolder.querySelector("viz-full-card");
 
-    const data = this.data;
+    const data = card.data;
 
     const fullCard = card.shadowRoot;
     const title = fullCard.querySelector(".title");
@@ -64,7 +64,12 @@ class VizDisplay extends Polymer.Element {
 
   select(e) {
     const item = e.detail.item;
-    console.log(item);
+    const cardHolder = this.$["card-holder"];
+    const divided = cardHolder.querySelector("viz-divided-card");
+    const full = new VizFullCard();
+    full.data = item;
+    full.addEventListener("divide", this.divide.bind(this));
+    cardHolder.replaceChild(full, divided);
   }
 }
 
