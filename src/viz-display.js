@@ -20,7 +20,8 @@ class VizDisplay extends Polymer.Element {
 
     header.textContent = title.textContent;
     title.innerHTML = "&nbsp";
-    console.log(dy);
+
+    new TimelineMax().set(header, { y: dy }).to(header, 1, { y: 0 });
   }
 }
 

@@ -5,7 +5,8 @@
     "polymer": "Polymer/polymer#^2.0.0-rc.3",
     "paper-button": "polymerelements/paper-button#2.0-preview",
     "paper-styles": "polymerelements/paper-styles#2.0-preview",
-    "paper-progress": "polymerelements/paper-progress#2.0-preview"
+    "paper-progress": "polymerelements/paper-progress#2.0-preview",
+    "gsap": "^1.19.1"
   },
   "devDependencies": {
     "web-component-tester": "^6.0.0-prerelease.5",
