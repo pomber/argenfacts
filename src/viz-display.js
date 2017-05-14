@@ -6,7 +6,7 @@ class VizDisplay extends Polymer.Element {
     return {
       data: {
         type: Object,
-        value: []
+        value: {}
       }
     };
   }
@@ -45,6 +45,14 @@ class VizDisplay extends Polymer.Element {
       .set(title, { innerHTML: "&nbsp" })
       .to(header, 1, { y: 0 }, 0)
       .to(content, 1, { alpha: 0 }, 0);
+  }
+
+  join(e) {
+    const cardHolder = this.$["card-holder"];
+    const divided = cardHolder.querySelector("viz-divided-card");
+    const joined = new VizFullCard();
+    joined.data = this.data;
+    cardHolder.replaceChild(joined, divided);
   }
 }
 

@@ -20,6 +20,8 @@
 			header {
 				text-align: center;
 				height: 30px;
+				cursor: pointer;
+				z-index: 10;
 			}
 
 			#card-holder {
@@ -34,10 +36,9 @@
 		</style>
 
 		<div class="container">
-			<header id="header"></header>
+			<header id="header" on-click="join"></header>
 			<div id="card-holder">
 				<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>
-				<!--<viz-divided-card data="[[data]]" on-select="select"></viz-divided-card>-->
 			</div>
 		</div>
 
