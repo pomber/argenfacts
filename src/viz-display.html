@@ -15,15 +15,15 @@
 				flex-direction: column;
 			}
 
-			.stack {
+			#card {
       	background: var(--viz-display-color);
 				flex: 1;
 			}
 		</style>
 
 		<div class="container">
-			<header>&nbsp</header>
-			<viz-full-card class="stack" data="[[data]]" on-divide="divide"></viz-full-card>
+			<header id="header">&nbsp</header>
+			<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>
 		</div>
 
 

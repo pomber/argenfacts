@@ -12,7 +12,15 @@ class VizDisplay extends Polymer.Element {
   }
 
   divide(e) {
-    console.log("divide");
+    const title = this.$.card.shadowRoot.querySelector(".title");
+    const header = this.$.header;
+    const titleRect = title.getBoundingClientRect();
+    const headerRect = header.getBoundingClientRect();
+    const dy = titleRect.top - headerRect.top;
+
+    header.textContent = title.textContent;
+    title.innerHTML = "&nbsp";
+    console.log(dy);
   }
 }
 
