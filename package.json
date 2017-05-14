@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "npm-run-all": "^4.0.2",
+    "polymer-cli": "^0.18.3"
+  },
+  "scripts": {
+    "start": "run-p serve watch",
+    "serve": "polymer serve",
+    "watch": "browser-sync start --proxy localhost:8081 --files \"src/**/*.*, index.html\""
+  }
+}
