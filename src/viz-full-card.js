@@ -1,7 +1,7 @@
 class VizFullCard extends Polymer.Element {
-	static get is() {
-		return "viz-full-card";
-	}
+  static get is() {
+    return "viz-full-card";
+  }
   static get properties() {
     return {
       data: {
@@ -9,6 +9,14 @@ class VizFullCard extends Polymer.Element {
         value: {}
       }
     };
+  }
+  divide(e) {
+    const newEvent = new CustomEvent("divide", {
+      bubbles: true,
+      composed: true,
+      detail: { kicked: true }
+    });
+    this.dispatchEvent(newEvent);
   }
 }
 

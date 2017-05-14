@@ -10,6 +10,10 @@ class VizDisplay extends Polymer.Element {
       }
     };
   }
+
+  divide(e) {
+    console.log("divide");
+  }
 }
 
 window.customElements.define(VizDisplay.is, VizDisplay);
