@@ -12,7 +12,8 @@ class VizDisplay extends Polymer.Element {
   }
 
   divide(e) {
-    const title = this.$.card.shadowRoot.querySelector(".title");
+    const fullCard = this.$.card.shadowRoot;
+    const title = fullCard.querySelector(".title");
     const titleRect = title.getBoundingClientRect();
     const titleStyle = window.getComputedStyle(title);
 
@@ -22,6 +23,8 @@ class VizDisplay extends Polymer.Element {
 
     const dy = titleRect.top - headerRect.top;
 
+    const content = fullCard.querySelectorAll(".container > *");
+
     new TimelineMax()
       .set(header, {
         y: dy,
@@ -30,7 +33,8 @@ class VizDisplay extends Polymer.Element {
         fontSize: titleStyle.fontSize
       })
       .set(title, { innerHTML: "&nbsp" })
-      .to(header, 1, { y: 0 });
+      .to(header, 1, { y: 0 }, 0)
+      .to(content, 1, { alpha: 0 }, 0);
   }
 }
 
