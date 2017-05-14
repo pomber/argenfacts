@@ -3,10 +3,16 @@
 	<template>
 		<style>
 			:host {
+      	background: var(--viz-display-color);
+				color: var(--paper-grey-50);
 				display: block;
+				text-align: center;
+			}
+			.container {
+				cursor: pointer;
 			}
 		</style>
-		
+		<div class="container">[[data.name]]</div>
 	</template>
 	<script src="viz-collapsed-card.js"></script>
 </dom-module>

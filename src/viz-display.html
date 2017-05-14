@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./gsap.html">
 <link rel="import" href="./viz-full-card.html">
+<link rel="import" href="./viz-divided-card.html">
 
 <dom-module id="viz-display">
 	<template>
@@ -29,7 +30,8 @@
 
 		<div class="container">
 			<header id="header"></header>
-			<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>
+			<!--<viz-full-card id="card" data="[[data]]" on-divide="divide"></viz-full-card>-->
+			<viz-divided-card data="[[data]]" on-select="select"></viz-divided-card>
 		</div>
 
 
