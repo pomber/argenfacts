@@ -18,6 +18,13 @@ class VizFullCard extends Polymer.Element {
     });
     this.dispatchEvent(newEvent);
   }
+  back(e) {
+    const newEvent = new CustomEvent("back", {
+      bubbles: true,
+      composed: true
+    });
+    this.dispatchEvent(newEvent);
+  }
 }
 
 window.customElements.define(VizFullCard.is, VizFullCard);

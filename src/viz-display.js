@@ -50,6 +50,18 @@ class VizDisplay extends Polymer.Element {
       .to(content, 0.25, { alpha: 0 }, 0);
   }
 
+  back(e) {
+    const item = this.data;
+    const cardHolder = this.$["card-holder"];
+    const full = cardHolder.querySelector("viz-full-card");
+    const divided = new VizDividedCard();
+    divided.data = item;
+    divided.addEventListener("select", this.select.bind(this));
+    cardHolder.replaceChild(divided, full);
+
+    this.$.header.textContent = item.name;
+  }
+
   join(e) {
     const header = this.$.header;
     header.innerHTML = "&nbsp";
@@ -59,6 +71,7 @@ class VizDisplay extends Polymer.Element {
     const joined = new VizFullCard();
     joined.data = this.data;
     joined.addEventListener("divide", this.divide.bind(this));
+    full.addEventListener("back", this.back.bind(this));
     cardHolder.replaceChild(joined, divided);
   }
 
@@ -69,6 +82,7 @@ class VizDisplay extends Polymer.Element {
     const full = new VizFullCard();
     full.data = item;
     full.addEventListener("divide", this.divide.bind(this));
+    full.addEventListener("back", this.back.bind(this));
     cardHolder.replaceChild(full, divided);
 
     this.$.header.innerHTML = "";
