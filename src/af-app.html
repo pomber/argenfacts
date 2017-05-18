@@ -7,10 +7,10 @@
   <template>
     <style>
        :host {
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100%;
       }
 
       viz-display {
@@ -19,12 +19,18 @@
         margin: 10px 0;
       }
 
-      .spending {
+      #landing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #spending {
         --viz-display-color: var(--paper-pink-500);
         --viz-display-accent-color: var(--paper-pink-900);
       }
 
-      .revenue {
+      #revenue {
         --viz-display-color: var(--paper-blue-500);
         --viz-display-accent-color: var(--paper-blue-900);
       }
@@ -34,16 +40,14 @@
         z-index: 10;
       }
     </style>
-    <template is="dom-if" if="[[isLanding]]">
+
+    <div id="landing">
       <h1>Argentina, en números</h1>
       <af-landing on-revenue="toRevenue" on-spending="toSpending"></af-landing>
-    </template>
-    <template is="dom-if" if="[[isRevenue]]">
-      <viz-display data="[[revenue]]" class="revenue" on-close="toLanding"></viz-display>
-    </template>
-    <template is="dom-if" if="[[isSpending]]">
-      <viz-display data="[[spending]]" class="spending" on-close="toLanding"></viz-display>
-    </template>
+    </div>
+
+    <viz-display data="[[revenue]]" id="revenue" on-close="toLanding" style="display: none"></viz-display>
+    <viz-display data="[[spending]]" id="spending" on-close="toLanding" style="display: none"></viz-display>
   </template>
 
   <script src="aff-app.js"></script>

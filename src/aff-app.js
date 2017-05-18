@@ -5,22 +5,6 @@ class AfApp extends Polymer.Element {
 
   static get properties() {
     return {
-      page: {
-        type: String,
-        value: "landing"
-      },
-      isLanding: {
-        type: Boolean,
-        computed: "isLandingPage(page)"
-      },
-      isRevenue: {
-        type: Boolean,
-        computed: "isRevenuePage(page)"
-      },
-      isSpending: {
-        type: Boolean,
-        computed: "isSpendigPage(page)"
-      },
       revenue: {
         type: Object,
         value: revenue
@@ -32,28 +16,20 @@ class AfApp extends Polymer.Element {
     };
   }
 
-  isLandingPage(page) {
-    return page === "landing";
-  }
-
-  isRevenuePage(page) {
-    return page === "revenue";
-  }
-
-  isSpendigPage(page) {
-    return page === "spending";
-  }
-
   toRevenue() {
-    this.page = "revenue";
+    this.$.landing.style.display = "none";
+    this.$.revenue.style.display = "";
   }
 
   toSpending() {
-    this.page = "spending";
+    this.$.landing.style.display = "none";
+    this.$.spending.style.display = "";
   }
 
   toLanding() {
-    this.page = "landing";
+    this.$.revenue.style.display = "none";
+    this.$.spending.style.display = "none";
+    this.$.landing.style.display = "";
   }
 }
 
