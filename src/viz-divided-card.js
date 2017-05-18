@@ -14,7 +14,7 @@ class VizDividedCard extends Polymer.Element {
     const newEvent = new CustomEvent("select", {
       bubbles: true,
       composed: true,
-      detail: { item: e.model.item }
+      detail: { item: e.model.item, rect: e.target.getBoundingClientRect() }
     });
     this.dispatchEvent(newEvent);
   }

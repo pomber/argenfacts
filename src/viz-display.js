@@ -55,7 +55,7 @@ class VizDisplay extends Polymer.Element {
     const cardHolder = this.$["card-holder"];
     const full = cardHolder.querySelector("viz-full-card");
 
-    if (item.name === full.data.name) {      
+    if (item.name === full.data.name) {
       const newEvent = new CustomEvent("close", {
         bubbles: true,
         composed: true
@@ -94,6 +94,20 @@ class VizDisplay extends Polymer.Element {
     full.addEventListener("divide", this.divide.bind(this));
     full.addEventListener("back", this.back.bind(this));
     cardHolder.replaceChild(full, divided);
+
+    const startRect = e.detail.rect;
+    const endRect = full.getBoundingClientRect();
+    const startScale = startRect.height / endRect.height;
+    new TimelineMax()
+      .set(full, {
+        top: startRect.top - endRect.top,
+        transform: `scaleY(${startScale})`,
+        transformOrigin: "50% 0%"
+      })
+      .to(full, 0.3, {
+        top: 0,
+        transform: `scaleY(1)`
+      });
 
     this.$.header.innerHTML = "";
   }
