@@ -58,26 +58,6 @@ class VizDisplay extends Polymer.Element {
       .to(content, 0.25, { alpha: 0 }, 0);
   }
 
-  back(e) {
-    if (!this.stack.length) {
-      const newEvent = new CustomEvent("close", {
-        bubbles: true,
-        composed: true
-      });
-      this.dispatchEvent(newEvent);
-      return;
-    }
-
-    const cardHolder = this.$["card-holder"];
-    const full = cardHolder.querySelector("viz-full-card");
-
-    const prev = this.stack.pop();
-    const divided = prev.element;
-    cardHolder.replaceChild(divided, full);
-
-    this.$.header.textContent = divided.data.name;
-  }
-
   join(e) {
     const header = this.$.header;
     header.innerHTML = "&nbsp";
@@ -87,6 +67,13 @@ class VizDisplay extends Polymer.Element {
     const prev = this.stack.pop();
     const joined = prev.element;
     cardHolder.replaceChild(joined, divided);
+
+    const content = joined.shadowRoot.querySelectorAll(".container > *");
+    const title = joined.shadowRoot.querySelector(".title");
+
+    new TimelineMax()
+      .set(title, { innerHTML: joined.data.name })
+      .to(content, 0.3, { alpha: 1 });
   }
 
   select(e) {
@@ -119,6 +106,40 @@ class VizDisplay extends Polymer.Element {
     });
 
     this.$.header.innerHTML = "";
+  }
+
+  back(e) {
+    if (!this.stack.length) {
+      const newEvent = new CustomEvent("close", {
+        bubbles: true,
+        composed: true
+      });
+      this.dispatchEvent(newEvent);
+      return;
+    }
+
+    const cardHolder = this.$["card-holder"];
+    const full = cardHolder.querySelector("viz-full-card");
+
+    const prev = this.stack.pop();
+    const divided = prev.element;
+
+    this.$.header.textContent = divided.data.name;
+
+    const startRect = full.getBoundingClientRect();
+    const endRect = prev.rect;
+    const endScale = endRect.height / startRect.height;
+    
+    cardHolder.insertBefore(divided, full);
+
+    new TimelineMax().to(full, 0.2, {
+      top: endRect.top - startRect.top,
+      transform: `scaleY(${endScale})`,
+      transformOrigin: "50% 0%",
+      onComplete: () => {
+        cardHolder.removeChild(full);
+      }
+    });
   }
 }
 
