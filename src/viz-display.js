@@ -1,4 +1,9 @@
 class VizDisplay extends Polymer.Element {
+  constructor() {
+    super();
+    this.stack = [];
+  }
+
   static get is() {
     return "viz-display";
   }
@@ -37,6 +42,9 @@ class VizDisplay extends Polymer.Element {
         divided.data = data;
         divided.addEventListener("select", self.select.bind(self));
         cardHolder.replaceChild(divided, card);
+        self.stack.push({
+          element: card
+        });
       }
     })
       .set(header, {
@@ -51,11 +59,7 @@ class VizDisplay extends Polymer.Element {
   }
 
   back(e) {
-    const item = this.data;
-    const cardHolder = this.$["card-holder"];
-    const full = cardHolder.querySelector("viz-full-card");
-
-    if (item.name === full.data.name) {
+    if (!this.stack.length) {
       const newEvent = new CustomEvent("close", {
         bubbles: true,
         composed: true
@@ -64,12 +68,14 @@ class VizDisplay extends Polymer.Element {
       return;
     }
 
-    const divided = new VizDividedCard();
-    divided.data = item;
-    divided.addEventListener("select", this.select.bind(this));
+    const cardHolder = this.$["card-holder"];
+    const full = cardHolder.querySelector("viz-full-card");
+
+    const prev = this.stack.pop();
+    const divided = prev.element;
     cardHolder.replaceChild(divided, full);
 
-    this.$.header.textContent = item.name;
+    this.$.header.textContent = divided.data.name;
   }
 
   join(e) {
@@ -78,10 +84,8 @@ class VizDisplay extends Polymer.Element {
     const cardHolder = this.$["card-holder"];
     const divided = cardHolder.querySelector("viz-divided-card");
     if (!divided) return;
-    const joined = new VizFullCard();
-    joined.data = this.data;
-    joined.addEventListener("divide", this.divide.bind(this));
-    joined.addEventListener("back", this.back.bind(this));
+    const prev = this.stack.pop();
+    const joined = prev.element;
     cardHolder.replaceChild(joined, divided);
   }
 
@@ -108,6 +112,11 @@ class VizDisplay extends Polymer.Element {
         top: 0,
         transform: `scaleY(1)`
       });
+
+    this.stack.push({
+      element: divided,
+      rect: startRect
+    });
 
     this.$.header.innerHTML = "";
   }
