@@ -19,11 +19,17 @@ class AfApp extends Polymer.Element {
   toRevenue() {
     this.$.landing.style.display = "none";
     this.$.revenue.style.display = "";
+    new TimelineMax()
+      .set(this.$.revenue, { transform: "scale(0.4)", alpha: 0.4 })
+      .to(this.$.revenue, 0.2, { transform: "scale(1)", alpha: 1 });
   }
 
   toSpending() {
     this.$.landing.style.display = "none";
     this.$.spending.style.display = "";
+    new TimelineMax()
+      .set(this.$.spending, { transform: "scale(0.4)", alpha: 0.4 })
+      .to(this.$.spending, 0.2, { transform: "scale(1)", alpha: 1 });
   }
 
   toLanding() {
